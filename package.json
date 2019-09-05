@@ -1,20 +1,53 @@
 {
-  "name": "typereact",
+  "name": "proj",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lingui compile && webpack --config webpack.config.js",
+    "start": "lingui compile && cross-env NODE_ENV=develop webpack-dev-server --open --mode development",
+    "add-locale": "lingui add-locale",
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@lingui/babel-preset-react": "^2.8.3",
+    "@lingui/cli": "^2.8.3",
+    "@lingui/loader": "^2.8.3",
+    "@lingui/macro": "^2.8.3",
+    "@types/lingui__core": "^2.7.0",
+    "@types/lingui__macro": "^2.7.3",
+    "@types/lingui__react": "^2.8.0",
+    "@types/react-dom": "^16.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-macros": "^2.6.1",
+    "cross-env": "^5.2.0",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@lingui/react": "^2.8.3",
+    "clean-webpack-plugin": "^3.0.0",
+    "fork-ts-checker-webpack-plugin": "^1.5.0",
+    "html-webpack-plugin": "^3.2.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "webapp-webpack-plugin": "^2.7.1"
   }
 }

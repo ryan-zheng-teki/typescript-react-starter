@@ -1,31 +1,47 @@
+const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const webpack = require("webpack");
+
 module.exports = {
-    mode: "development",
-
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
-
-    resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx"]
+    mode: 'production',
+    entry: './src/index',
+    devtool: 'inline-source-map',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'app.bundle.js'
     },
-
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        alias:{
+            '@components':path.resolve(__dirname, 'src/@next/components')
+        }
+    },
     module: {
-        rules: [
-            {
-                test: /\.ts(x?)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "ts-loader"
-                    }
-                ]
-            },
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
-            }
+        rules: [{
+            test: /\.tsx?$/,
+            use: ['babel-loader','ts-loader'],
+            exclude: [
+                '/node_modules/',
+                "/src/locale/**",
+            ]
+        },
+        {
+            enforce: "pre",
+            test: /\.js$/,
+            loader: "source-map-loader"
+        }
         ]
-    }
-};
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+        hot: true
+    },
+    plugins: [
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        filename: './index.html'       })
+    ],
+}

@@ -1,0 +1,8 @@
+//compile the tsx files by the tsconfig.json into jsx
+Step 1 
+tsc --p .
+
+Step 2.
+npx babel dist --out-dir lib
+
+npx babel --extensions ".tsx" src  --out-dir lib

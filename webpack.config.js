@@ -13,9 +13,6 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        alias:{
-            '@components':path.resolve(__dirname, 'src/@next/components')
-        }
     },
     module: {
         rules: [{
@@ -44,4 +41,8 @@ module.exports = {
         template: './src/index.html',
         filename: './index.html'       })
     ],
+    node: {
+        fs: "empty",
+        module: "empty"
+    }
 }

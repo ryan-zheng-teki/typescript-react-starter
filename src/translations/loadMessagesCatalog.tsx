@@ -1,5 +1,5 @@
-const fallbackLanguage = "en";
-
+//import catalogEn from "../locales/en/messages";
+//import catalogDe from "../locales/de/messages";
 
 export const lang = "en"
 

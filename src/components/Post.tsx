@@ -1,6 +1,6 @@
 import { PostProps, PostState } from "./types/post";
 import * as React from "react";
-import {Trans} from "@lingui/macro";
+import  {Trans} from "@lingui/macro";
 
 export class Post extends React.Component<{},PostState> {
     constructor(props: PostProps) {

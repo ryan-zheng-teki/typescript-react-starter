@@ -1,6 +1,6 @@
 import { PostProps, PostState } from "./types/post";
 import * as React from "react";
-import  {Trans} from "@lingui/macro";
+import { Trans } from "@lingui/react";
 
 export class Post extends React.Component<{},PostState> {
     constructor(props: PostProps) {
@@ -15,9 +15,8 @@ export class Post extends React.Component<{},PostState> {
     render() {
         return (
             <div>
-                <h1><Trans>This is not correct</Trans></h1>
+                <h1><Trans id="This is not correct"/></h1>
                 <p>this.state.user</p>
-                <textarea>this.state.message</textarea>
             </div>
         )
     }

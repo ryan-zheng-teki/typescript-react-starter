@@ -4,9 +4,9 @@
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "esnext",
-        "target": "es2016",
-        "jsx": "preserve",
+        "jsx": "react",
         "lib": ["es2017", "dom", "esnext"],
+        "target": "es6",
     },
     "baseUrl": "src",
     "paths": {
@@ -14,7 +14,6 @@
       },
     "exclude": [
         "node_modules",
-        "src/translations/loadMessagesCatalog.tsx",
         "dist",
         "babel.config.js",
         "webpack.config.js"
